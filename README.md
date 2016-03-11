@@ -156,6 +156,14 @@ public function actionList($query)
         'create' => true,
     ],
 ])->hint('Use commas to separate tags') ?>
+
+
+// In Tag Model
+public static function findAllByName( $name ) {
+	return Tag::find()
+		->where( [ 'like', 'name', $name ] )->limit( 50 )->all();
+}
+
 ```
 
 As you can see, `tagNames` is the attribute (by default) from which we can access our tags and they are stored in it as
